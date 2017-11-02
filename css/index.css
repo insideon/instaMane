@@ -1,0 +1,197 @@
+html, body, .bs, .bss {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+main, span, footer {
+    margin: 0;
+    padding: 0;
+    color: #999;
+}
+
+main {
+    height: 80%;
+}
+
+footer {
+    line-height: 150px;
+    height: 20%;
+    background-color: #fafafa;
+}
+
+.foo {
+    width: 100%;
+    max-width: 935px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.foo nav {
+    display: block;
+    position: relative;
+}
+
+body {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+article {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    padding: 100px 0 0 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: inline;
+}
+
+li {
+    float: left;
+    display: inline-block;
+    margin-bottom: 7px;
+    margin-right: 16px;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #003569;
+}
+
+ul a, ul a:visited {
+    color: #003569;
+}
+
+form p {
+    color: #999;
+    margin-bottom: -5px;
+}
+
+form a {
+    text-decoration: blink;
+    font-weight: 600;
+}
+
+.ldiv {
+    position: relative;
+    display: inline-block;
+}
+
+.rdiv {
+    display: inline-block;
+    height: 100%;
+    max-height: 900px;
+    padding: 30px;
+    position: relative;
+    width: 25em;
+}
+
+.instaMain {
+    width: 400px;
+    height: 600px;
+    margin: 0 0 80px 0;
+}
+
+.instaLogo {
+    width: 170px;
+    height: 50px;
+}
+
+.appStore {
+    width: 136px;
+    height: 40px;
+}
+
+.googlePlay {
+    width: 136px;
+    height: 40px;
+}
+
+.rd1 {
+    margin: 20px 10px 0px 10px;
+    padding: 25px;
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    background-color: white;
+}
+
+.rd2 {
+    margin: 20px 10px 0px 10px;
+    padding: 0;
+    border: 1px solid #e6e6e6;
+    border-radius: 1px;
+    background-color: white;
+}
+
+button {
+    width: 100%;
+    background-color: #3897f0;
+    border-color: #3897f0;
+    color: #fff;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 26px;
+    outline: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+input {
+    max-width: 268px;
+    background: #fafafa;
+    padding: 9px 0 7px 8px;
+    text-overflow: ellipsis;
+    width: 100%;
+    font-size: 14px;
+    line-height: 18px;
+    border: 1px solid #efefef;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+p {
+    color: #000;
+}
+
+p a, p a:visited {
+    color: #999;
+    text-decoration: none;
+}
+
+#logina {
+    text-decoration: none;
+    color: #3897f0;
+}
+
+h2 {
+    color: #999;
+}
+
+nav {
+    text-align: right;
+}
+
+hr {
+    display: inline-block;
+}
