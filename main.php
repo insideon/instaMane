@@ -14,41 +14,19 @@ include 'models/MainModel.php';
     for($i=0; $i < count($articles); $i++) {
 
         // 등록한 유저
-        $stmt = $connect->prepare('SELECT * FROM users WHERE id = :id');
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $id = $articles[$i]['users_id'];
-        $stmt->execute();
-        $articles[$i]['users'] = $stmt->fetch(PDO::FETCH_ASSOC);
+        $articles[$i]['authors'] = $mainModel->authors($articles[$i]['users_id']);
 
         // 업로드한 사진
-        $stmt = $connect->prepare('SELECT * FROM pics WHERE id = :id');
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $id = $articles[$i]['id'];
-        $stmt->execute();
-        $articles[$i]['pics'] = $stmt->fetch(PDO::FETCH_ASSOC);
+        $articles[$i]['pics'] = $mainModel->pics($articles[$i]['users_id']);
 
         // 좋아요 갯수
-        $stmt = $connect->prepare('SELECT count(*) cnt FROM likes WHERE articles_id = :articles_id');
-        $stmt->bindParam(':articles_id', $articles_id, PDO::PARAM_INT);
-        $articles_id = $articles[$i]['id'];
-        $stmt->execute();
-        $articles[$i]['likesCnt'] = $stmt->fetchColumn();
+        $articles[$i]['likesCnt'] = $mainModel->likeCnt($articles[$i]['id']);
 
-        $stmt = $connect->prepare('SELECT * FROM likes JOIN users ON likes.users_id = users.id WHERE articles_id = :articles_id LIMIT 2');
-        $stmt->bindParam(':articles_id', $articles_id, PDO::PARAM_INT);
-        $articles_id = $articles[$i]['id'];
-        $stmt->execute();
-        $articles[$i]['like_users'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // 좋아요 누른 유저 (아직 사용하지 않음)
+        $articles[$i]['like_users'] = $mainModel->likeUsers($articles[$i]['id']);
 
         // 코멘트 내용
-        $stmt = $connect->prepare('SELECT * FROM comments JOIN users ON comments.users_id = users.id WHERE articles_id = :articles_id');
-        $stmt->bindParam(':articles_id', $articles_id, PDO::PARAM_INT);
-        $articles_id = $articles[$i]['id'];
-        $stmt->execute();
-
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            $articles[$i]['comments'][] = $row;
-        }
+        $articles[$i]['comments'] = $mainModel->comments($articles[$i]['id']);
     }
 
 include 'views/main.php';
