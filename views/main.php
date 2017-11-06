@@ -23,7 +23,7 @@
                         <?php foreach($articles as $article):?>
                             <article>
                                 <!-- 등록한 유저 -->
-                                <header>
+                                <div id="author">
                                     <div>
                                         <a href="">
                                             <img src="<?=$article['authors']['icon'];?>" alt="">
@@ -34,7 +34,7 @@
                                             <?=$article['authors']['name'];?>
                                         </a>
                                     </div>
-                                </header>
+                                </div>
 
                                 <!-- 업로드한 사진 -->
                                 <div>

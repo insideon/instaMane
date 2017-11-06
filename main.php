@@ -25,7 +25,7 @@ include 'models/MainModel.php';
         // 좋아요 누른 유저 (아직 사용하지 않음)
         $articles[$i]['like_users'] = $mainModel->likeUsers($articles[$i]['id']);
 
-        // 코멘트 내용
+        // 코멘트
         $articles[$i]['comments'] = $mainModel->comments($articles[$i]['id']);
     }
 

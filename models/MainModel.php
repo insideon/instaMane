@@ -38,7 +38,7 @@ class MainModel
 
     public function likeCnt($articles_id)
     {
-        $stmt = $this->connect->prepare('SELECT count(*) cnt FROM likes WHERE articles_id = :articles_id');
+        $stmt = $this->connect->prepare('SELECT count(*) cnt FROM likes WHERE articles_id = :articles_id AND up = 1');
         $stmt->bindParam(':articles_id', $articles_id, PDO::PARAM_INT);
         $stmt->execute();
 
