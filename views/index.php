@@ -20,42 +20,45 @@
                                 <form>
                                     <h2>친구들의 사진과 동영상을 보려면 가입하세요.</h2>
                                     <span>
-                                        <button src="/main">Facebook으로 로그인</button>
+                                        <button src="">Facebook으로 로그인</button>
                                     </span>
                                     <div>
                                         <p>
                                         <div><hr color="#ccc" size="1" width="110px" noshade>&nbsp;&nbsp;&nbsp;또는&nbsp;&nbsp;&nbsp;<hr color="#ccc" size="1" width="110px" noshade></div>
                                         <p>
                                     </div>
-                                    <div>
-                                        <input type="text" name="emailOrPhone" aria-describedby aria-label="휴대폰 번호 또는 이메일 주소" aria-required="true" autocapitalize="off" autocorrect="off" placeholder="휴대폰 번호 또는 이메일 주소">
-                                    </div>
-                                    <p></p>
-                                    <div>
-                                        <input type="text" name="fullName" aria-describedby aria-label="성명" aria-required="true" autocapitalize="off" autocorrect="off" placeholder="성명">
-                                    </div>
-                                    <p></p>
-                                    <div>
-                                        <input type="text" name="username" aria-describedby aria-label="사용자 이름" aria-required="true" autocapitalize="off" autocorrect="off" placeholder="사용자 이름">
-                                    </div>
-                                    <p></p>
-                                    <div>
-                                        <input type="text" name="password" aria-describedby aria-label="비밀번호" aria-required="true" autocapitalize="off" autocorrect="off" placeholder="비밀번호">
-                                    </div>
-                                    <p></p>
-                                    <div>
-                                        <span>
-                                          <button>가입</button>
-                                      </span>
-                                  </div>
-                                  <p>가입하면 Instagram의 <a href="">약관</a> 및 <a href="">개인정보 처리방침</a>에 동의하게 됩니다.</p>
+                                    <form>
+                                        <div>
+                                            <input type="text" name="email" placeholder="이메일 주소" required>
+                                        </div>
+                                        <p></p>
+                                        <div>
+                                            <input type="text" name="name" placeholder="성명" required>
+                                        </div>
+                                        <p></p>
+                                        <div>
+                                            <input type="text" name="nickname" placeholder="닉네임" required>
+                                        </div>
+                                        <p></p>
+                                        <div>
+                                            <input type="text" name="password" placeholder="비밀번호" required>
+                                        </div>
+                                        <p></p>
+                                        <div>
+                                            <span>
+                                                <button formmethod="post" formaction="/register.php">가입</button>
+                                            </span>
+                                        </div>
+                                    </form>
+
+                                    <p>가입하면 Instagram의 <a href="">약관</a> 및 <a href="">개인정보 처리방침</a>에 동의하게 됩니다.</p>
                               </form>
                           </div>
                       </div>
                       <div class="rd2">
                         <p>
                             계정이 있으신가요?
-                            <a id="logina" href="">로그인</a>
+                            <a id="logina" href="/main.php">로그인</a>
                         </p>
                     </div>
                     <div>

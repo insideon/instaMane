@@ -9,7 +9,7 @@
     <span id="tSpan">
         <section id="tSection">
             <nav>
-                <div id="logoImg"><a href=""><img class="topLogo1" src="images/instaLogo2.jpg"></a></div>
+                <div id="logoImg"><a href="/index.php"><img class="topLogo1" src="images/instaLogo2.jpg"></a></div>
                 <div><input type="text" name="search" placeholder="검색"></div>
                 <div id="miniImg">
                     <div><a href=""><img class="topLogo2" src="images/insta1.jpg"></a></div>
@@ -31,7 +31,7 @@
                                     </div>
                                     <div>
                                         <a class="bold" href="">
-                                            <?=$article['authors']['name'];?>
+                                            <?=$article['authors']['nickname'];?>
                                         </a>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@
                                             <li><a id="moreComment" href="">댓글 더 보기</a></li>
                                             <li>
                                                 <?php foreach($article['comments'] as $comment):?>
-                                                    <a class='commentId' href=''><?=$comment['name'];?></a>
+                                                    <a class='commentId' href=''><?=$comment['nickname'];?></a>
                                                     <?=$comment['content'];?><br>
                                                 <?php endforeach;?>
                                             </li>
