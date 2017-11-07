@@ -1,6 +1,6 @@
 <?php
 
-class MainModel
+class Main
 {
 
     protected $connect;

@@ -1,6 +1,6 @@
 <?php
-include 'models/connect.php';
-include 'models/MainModel.php';
+require 'connect.php';
+require 'models/Main.php';
 
     try {
         $connect = new PDO('mysql:host=localhost;dbname=instaMane;charset=utf8', $id, $pwd);
@@ -8,26 +8,26 @@ include 'models/MainModel.php';
         die($e->getMessage());
     }
 
-    $mainModel = new MainModel($connect);
-    $articles = $mainModel->articles();
+    $main = new Main($connect);
+    $articles = $main->articles();
 
     for($i=0; $i < count($articles); $i++) {
 
         // 등록한 유저
-        $articles[$i]['authors'] = $mainModel->authors($articles[$i]['users_id']);
+        $articles[$i]['authors'] = $main->authors($articles[$i]['users_id']);
 
         // 업로드한 사진
-        $articles[$i]['pics'] = $mainModel->pics($articles[$i]['users_id']);
+        $articles[$i]['pics'] = $main->pics($articles[$i]['users_id']);
 
         // 좋아요 갯수
-        $articles[$i]['likesCnt'] = $mainModel->likeCnt($articles[$i]['id']);
+        $articles[$i]['likesCnt'] = $main->likeCnt($articles[$i]['id']);
 
         // 좋아요 누른 유저 (아직 사용하지 않음)
-        $articles[$i]['like_users'] = $mainModel->likeUsers($articles[$i]['id']);
+        $articles[$i]['like_users'] = $main->likeUsers($articles[$i]['id']);
 
         // 코멘트
-        $articles[$i]['comments'] = $mainModel->comments($articles[$i]['id']);
+        $articles[$i]['comments'] = $main->comments($articles[$i]['id']);
     }
 
-include 'views/main.php';
+require 'views/main.php';
 ?>

@@ -1,5 +1,4 @@
 <?php
-// print_r($_POST);
 require 'models/connect.php';
 require 'models/User.php';
 
