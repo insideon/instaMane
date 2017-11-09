@@ -31,7 +31,7 @@ class User
         $stmt->bindParam(':email', $email, PDO::PARAM_INT);
         $stmt->execute();
 
-        return filter_var($stmt->fetch(PDO::FETCH_ASSOC), FILTER_VALIDATE_BOOLEAN);
+        return filter_var(!empty($stmt->fetch(PDO::FETCH_ASSOC)), FILTER_VALIDATE_BOOLEAN);
     }
 
     public function nicknameDupChk($nickname)
@@ -40,6 +40,6 @@ class User
         $stmt->bindParam(':nickname', $nickname, PDO::PARAM_INT);
         $stmt->execute();
 
-        return filter_var($stmt->fetch(PDO::FETCH_ASSOC), FILTER_VALIDATE_BOOLEAN);
+        return filter_var(!empty($stmt->fetch(PDO::FETCH_ASSOC)), FILTER_VALIDATE_BOOLEAN);
     }
 }
