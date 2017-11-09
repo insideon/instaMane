@@ -20,8 +20,26 @@ class User
         $email = $_POST['email'];
         $name = $_POST['name'];
         $nickname = $_POST['nickname'];
-        $password = $_POST['password'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         $stmt->execute();
+    }
+
+    public function emailDupChk($email)
+    {
+        $stmt = $this->connect->prepare("SELECT email FROM users WHERE email = :email");
+        $stmt->bindParam(':email', $email, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return filter_var($stmt->fetch(PDO::FETCH_ASSOC), FILTER_VALIDATE_BOOLEAN);
+    }
+
+    public function nicknameDupChk($nickname)
+    {
+        $stmt = $this->connect->prepare("SELECT nickname FROM users WHERE nickname = :nickname");
+        $stmt->bindParam(':nickname', $nickname, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return filter_var($stmt->fetch(PDO::FETCH_ASSOC), FILTER_VALIDATE_BOOLEAN);
     }
 }

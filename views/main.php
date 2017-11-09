@@ -26,19 +26,19 @@
                                 <div id="author">
                                     <div>
                                         <a href="">
-                                            <img src="<?=$article['authors']['icon'];?>" alt="">
+                                            <img src="<?=htmlspecialchars($article['authors']['icon']);?>" alt="">
                                         </a>
                                     </div>
                                     <div>
                                         <a class="bold" href="">
-                                            <?=$article['authors']['nickname'];?>
+                                            <?=htmlspecialchars($article['authors']['nickname']);?>
                                         </a>
                                     </div>
                                 </div>
 
                                 <!-- 업로드한 사진 -->
                                 <div>
-                                    <img src="<?=$article['pics']['url'];?>">
+                                    <img src="<?=htmlspecialchars($article['pics']['url']);?>">
                                 </div>
 
                                 <div class="comments">
@@ -51,14 +51,14 @@
                                         <a class="bold" href="">
                                             <span>
                                                 좋아요
-                                                <?=$article['likesCnt']?>
+                                                <?=htmlspecialchars($article['likesCnt']);?>
                                                 개
                                             </span>
                                         </a>
                                     </section>
                                     <div class="articleContent">
                                         <!-- 글 내용 -->
-                                        <?=$article['content'];?>
+                                        <?=htmlspecialchars($article['content']);?>
                                     </div>
                                     <div>
                                         <!-- 코멘트 -->
@@ -66,15 +66,15 @@
                                             <li><a id="moreComment" href="">댓글 더 보기</a></li>
                                             <li>
                                                 <?php foreach($article['comments'] as $comment):?>
-                                                    <a class='commentId' href=''><?=$comment['nickname'];?></a>
-                                                    <?=$comment['content'];?><br>
+                                                    <a class='commentId' href=''><?=htmlspecialchars($comment['nickname']);?></a>
+                                                    <?=htmlspecialchars($comment['content']);?><br>
                                                 <?php endforeach;?>
                                             </li>
                                         </ul>
                                     </div>
                                     <div></div>
                                     <section>
-                                        <span id="timeStamp"><?=date("Y-m-d",strtotime($article['created']));?></span>
+                                        <span id="timeStamp"><?=date("Y-m-d",strtotime(htmlspecialchars($article['created'])));?></span>
                                         <hr size="1" color="#ccc" noshade>
                                         <p></p>
                                         <form>
