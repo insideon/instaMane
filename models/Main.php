@@ -12,7 +12,7 @@ class Main
 
     public function articles()
     {
-        $stmt = $this->connect->prepare('SELECT * FROM articles');
+        $stmt = $this->connect->prepare('SELECT * FROM articles ORDER BY id DESC');
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

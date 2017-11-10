@@ -24,6 +24,7 @@ main {
 footer {
     height: 10%;
     background-color: #fafafa;
+    padding-top: 100px;
 }
 article {
     width: 100%;
