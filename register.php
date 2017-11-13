@@ -24,7 +24,7 @@ require 'models/User.php';
     if (empty($email)) {
         $_SESSION['errorMessage'] = "이메일을 입력하지 않았습니다.";
         header('Location: index.php');
-    } else  {
+    } else {
         $emailDupChk = $user->emailDupChk($email);
 
         if ($emailDupChk) {

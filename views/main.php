@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!isset($_SESSION['is_login'])){
+    header('Location: login.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +15,11 @@
     <span id="tSpan">
         <section id="tSection">
             <nav>
-                <div id="logoImg"><a href="/index.php"><img class="topLogo1" src="images/instaLogo2.jpg"></a></div>
+                <div id="logoImg"><a href="main.php"><img class="topLogo1" src="images/instaLogo2.jpg"></a></div>
                 <div><input type="text" name="search" placeholder="검색"></div>
                 <div id="miniImg">
+                    <form><button type="submit" name="logout" formmethod="post" formaction="logout_process.php">로그아웃</button></form>
+                    <div></div>
                     <div><a href=""><img class="topLogo2" src="images/insta1.jpg"></a></div>
                     <div><a href=""><img class="topLogo2" src="images/insta2.jpg"></a></div>
                     <div><a href=""><img class="topLogo2" src="images/insta3.jpg"></a></div>

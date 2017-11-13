@@ -42,4 +42,13 @@ class User
 
         return !empty($stmt->fetch(PDO::FETCH_ASSOC));
     }
+
+    public function loginChk($email)
+    {
+        $stmt = $this->connect->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt->bindParam(':email', $email, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }
