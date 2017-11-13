@@ -1,3 +1,8 @@
+<?php
+session_start();
+$errorMessage = isset($_SESSION['errorMessage']) ? $_SESSION['errorMessage'] : '';
+unset($_SESSION['errorMessage']);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,11 +50,13 @@
                                 <p></p>
                                 <div>
                                     <span class="span">
-                                        <button type="submit" name="submit" formmethod="post" formaction="index.php">가입</button>
+                                        <button type="submit" name="submit" formmethod="post" formaction="register.php">가입</button>
                                     </span>
                                 </div>
                                 <br>
-                                <?="<div style='display:".$display."; visibility:".$visibility.";'>".$_SESSION['message']."</div>";?>
+                                <?php if($errorMessage): ?>
+                                    <div><?=$errorMessage;?></div>
+                                <?php endif; ?>
                                 <p>가입하면 Instagram의 <a href="">약관</a> 및 <a href="">개인정보 처리방침</a>에 동의하게 됩니다.</p>
                             </form>
                         </form>
