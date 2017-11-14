@@ -22,7 +22,7 @@ require __DIR__ . '/vendor/autoload.php';
     if (!empty($email) && !empty($password)) {
         $loginChk = $user->loginChk($email);
 
-        if ($email == $loginChk['email'] && $password == $loginChk['password']) {
+        if ($email == $loginChk['email'] && password_verify($password, $loginChk['password'])) {
             $_SESSION['is_login'] = true;
             $_SESSION['nickname'] = $loginChk['nickname'];
             header('Location: main.php');
