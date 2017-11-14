@@ -1,10 +1,13 @@
 <?php
 session_start();
-require 'connect.php';
 require 'models/User.php';
+require __DIR__ . '/vendor/autoload.php';
+
+    $dotenv = new Dotenv\Dotenv(__DIR__);
+    $dotenv->load();
 
     try {
-        $connect = new PDO('mysql:host=localhost;dbname=instaMane;charset=utf8', $id, $pwd);
+        $connect = new PDO('mysql:host=localhost;dbname=instaMane;charset=utf8', getenv('DB_USERNAME'), getenv('DB_PASSWORD'));
     } catch (PDOException $e) {
         die($e->getMessage());
     }
@@ -27,6 +30,7 @@ require 'models/User.php';
         } else if ($email != $loginChk['email']) {
             $_SESSION['errorMessage'] = "존재하지 않는 이메일 주소입니다.";
             header('Location: login.php');
+            exit;
         } else {
             $_SESSION['errorMessage'] = "잘못된 비밀번호 입니다.";
             header('Location: login.php');

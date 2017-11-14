@@ -1,10 +1,13 @@
 <?php
 session_start();
-require 'connect.php';
 require 'models/User.php';
+require __DIR__ . '/vendor/autoload.php';
+
+    $dotenv = new Dotenv\Dotenv(__DIR__);
+    $dotenv->load();
 
     try {
-        $connect = new PDO('mysql:host=localhost;dbname=instaMane;charset=utf8', $id, $pwd);
+        $connect = new PDO('mysql:host=localhost;dbname=instaMane;charset=utf8', getenv('DB_USERNAME'), getenv('DB_PASSWORD'));
     } catch (PDOException $e) {
         die($e->getMessage());
     }
@@ -24,15 +27,18 @@ require 'models/User.php';
     if (empty($email)) {
         $_SESSION['errorMessage'] = "이메일을 입력하지 않았습니다.";
         header('Location: index.php');
+        exit;
     } else {
         $emailDupChk = $user->emailDupChk($email);
 
         if ($emailDupChk) {
             $_SESSION['errorMessage'] = "이미 존재하는 이메일입니다.";
             header('Location: index.php');
+            exit;
         } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $_SESSION['errorMessage'] = "이메일 형식에 맞지 않습니다.";
             header('Location: index.php');
+            exit;
         } else $formCount++;
     }
 
@@ -40,23 +46,27 @@ require 'models/User.php';
     if (empty($name)) {
         $_SESSION['errorMessage'] = "이름을 입력하지 않았습니다.";
         header('Location: index.php');
+        exit;
     } else if (strlen($name) == 6 || strlen($name) == 9 || strlen($name) == 12) {
         $formCount++;
-    } else $_SESSION['errorMessage'] = "이름 2~4자만 허용합니다."; header('Location: index.php');
+    } else $_SESSION['errorMessage'] = "이름 2~4자만 허용합니다."; header('Location: index.php'); exit;
 
     // nickname
     if (empty($nickname)) {
         $_SESSION['errorMessage'] = "닉네임을 입력하지 않았습니다.";
         header('Location: index.php');
+        exit;
     } else {
         $nicknameDupChk = $user->nicknameDupChk($nickname);
 
         if ($nicknameDupChk) {
             $_SESSION['errorMessage'] = "이미 존재하는 닉네임입니다.";
             header('Location: index.php');
+            exit;
         } else if ((strlen($nickname) > 8) || (strlen($nickname) < 2)) {
             $_SESSION['errorMessage'] = "닉네임 2~8자만 허용합니다.";
             header('Location: index.php');
+            exit;
         } else $formCount++;
     }
 
@@ -64,9 +74,11 @@ require 'models/User.php';
     if (empty($password)) {
         $_SESSION['errorMessage'] = "비밀번호를 입력하지 않았습니다.";
         header('Location: index.php');
+        exit;
     } else if ((strlen($password) > 16) || (strlen($password) < 8)) {
         $_SESSION['errorMessage'] = "비밀번호 8~16자만 허용합니다.";
         header('Location: index.php');
+        exit;
     } else $formCount++;
 
     // 모두 정확히 입력되었는지 확인 후 등록

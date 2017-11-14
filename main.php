@@ -1,9 +1,12 @@
 <?php
-require 'connect.php';
 require 'models/Main.php';
+require __DIR__ . '/vendor/autoload.php';
+
+    $dotenv = new Dotenv\Dotenv(__DIR__);
+    $dotenv->load();
 
     try {
-        $connect = new PDO('mysql:host=localhost;dbname=instaMane;charset=utf8', $id, $pwd);
+        $connect = new PDO('mysql:host=localhost;dbname=instaMane;charset=utf8', getenv('DB_USERNAME'), getenv('DB_PASSWORD'));
     } catch (PDOException $e) {
         die($e->getMessage());
     }
