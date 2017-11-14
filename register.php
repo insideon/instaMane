@@ -7,7 +7,7 @@ require __DIR__ . '/vendor/autoload.php';
     $dotenv->load();
 
     try {
-        $connect = new PDO('mysql:host=localhost;dbname=instaMane;charset=utf8', getenv('DB_USERNAME'), getenv('DB_PASSWORD'));
+        $connect = new PDO(getenv('DB_CONNECTION').":host=".getenv('DB_HOST').";dbname=".getenv('DB_DATABASE').";charset=utf8", getenv('DB_USERNAME'), getenv('DB_PASSWORD'));
     } catch (PDOException $e) {
         die($e->getMessage());
     }

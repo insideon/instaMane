@@ -21,7 +21,6 @@ unset($_SESSION['errorMessage']);
             <div class="rd1">
                 <img class="instaLogo" src="images/instaLogo.jpg">
                 <div>
-                    <form>
                         <h2>친구들의 사진과 동영상을 보려면 가입하세요.</h2>
                         <span class="span">
                             <button src="">Facebook으로 로그인</button>
@@ -31,34 +30,33 @@ unset($_SESSION['errorMessage']);
                             <div><hr color="#ccc" size="1" width="110px" noshade>&nbsp;&nbsp;&nbsp;또는&nbsp;&nbsp;&nbsp;<hr color="#ccc" size="1" width="110px" noshade></div>
                             <p>
                         </div>
-                            <form>
-                                <div>
-                                    <input type="text" name="email" placeholder="이메일 주소 (example@gmail.com)">
-                                </div>
-                                <p></p>
-                                <div>
-                                    <input type="text" name="name" placeholder="성명 (한글 2~4자)">
-                                </div>
-                                <p></p>
-                                <div>
-                                    <input type="text" name="nickname" placeholder="닉네임 (영어,숫자 2~8자)">
-                                </div>
-                                <p></p>
-                                <div>
-                                    <input type="password" name="password" placeholder="비밀번호 (영어,숫자 8~16자)">
-                                </div>
-                                <p></p>
-                                <div>
-                                    <span class="span">
-                                        <button type="submit" name="submit" formmethod="post" formaction="register.php">가입</button>
-                                    </span>
-                                </div>
-                                <br>
-                                <?php if($errorMessage): ?>
-                                    <div><?=$errorMessage;?></div>
-                                <?php endif; ?>
-                                <p>가입하면 Instagram의 <a href="">약관</a> 및 <a href="">개인정보 처리방침</a>에 동의하게 됩니다.</p>
-                            </form>
+                        <form>
+                            <div>
+                                <input type="text" name="email" placeholder="이메일 주소 (example@gmail.com)">
+                            </div>
+                            <p></p>
+                            <div>
+                                <input type="text" name="name" placeholder="성명 (한글 2~4자)">
+                            </div>
+                            <p></p>
+                            <div>
+                                <input type="text" name="nickname" placeholder="닉네임 (영어,숫자 2~8자)">
+                            </div>
+                            <p></p>
+                            <div>
+                                <input type="password" name="password" placeholder="비밀번호 (영어,숫자 8~16자)">
+                            </div>
+                            <p></p>
+                            <div>
+                                <span class="span">
+                                    <button type="submit" name="submit" formmethod="post" formaction="register.php">가입</button>
+                                </span>
+                            </div>
+                            <br>
+                            <?php if($errorMessage): ?>
+                                <div><?=$errorMessage;?></div>
+                            <?php endif; ?>
+                            <p>가입하면 Instagram의 <a href="">약관</a> 및 <a href="">개인정보 처리방침</a>에 동의하게 됩니다.</p>
                         </form>
                     </div>
                 </div>
