@@ -49,7 +49,10 @@ require __DIR__ . '/vendor/autoload.php';
         exit;
     } else if (strlen($name) == 6 || strlen($name) == 9 || strlen($name) == 12) {
         $formCount++;
-    } else $_SESSION['errorMessage'] = "이름 2~4자만 허용합니다."; header('Location: index.php');
+    } else {
+        $_SESSION['errorMessage'] = "이름 2~4자만 허용합니다.";
+        header('Location: index.php');
+    }
 
     // nickname
     if (empty($nickname)) {

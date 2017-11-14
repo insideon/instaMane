@@ -2,6 +2,11 @@
 session_start();
 $errorMessage = isset($_SESSION['errorMessage']) ? $_SESSION['errorMessage'] : '';
 unset($_SESSION['errorMessage']);
+
+if(isset($_SESSION['is_login'])){
+    header('Location: main.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html>
