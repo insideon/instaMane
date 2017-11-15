@@ -189,6 +189,7 @@ img {
 .rows{
     display: flex;
     margin-bottom:10px;
+    justify-content: space-between;
 }
 .pfarticle {
     min-width: 30%;

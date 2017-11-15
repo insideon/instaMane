@@ -1,13 +1,8 @@
 <?php
-session_start();
 if (!isset($_SESSION['is_login'])) {
     header('Location: login.php');
     exit;
 }
-
-$icon = isset($_SESSION['icon']) ? $_SESSION['icon'] : '';
-$nickname = isset($_SESSION['nickname']) ? $_SESSION['nickname'] : '';
-$profile_article = isset($_SESSION['profile_article']) ? $_SESSION['profile_article'] : '';
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,15 +28,15 @@ $profile_article = isset($_SESSION['profile_article']) ? $_SESSION['profile_arti
             <main>
                 <div class="pfframe">
                     <header class="pf1">
-                        <div class="pf11"><a href=""><img class="pficon" src="<?=htmlspecialchars($icon);?>"></a></div>
+                        <div class="pf11"><a href=""><img class="pficon" src="<?=htmlspecialchars($author['icon']);?>"></a></div>
                         <div class="pf12">
                             <div class="pfc1">
-                                <span class="pfc11"><?=htmlspecialchars($nickname);?></span>
+                                <span class="pfc11"><?=htmlspecialchars($author['nickname']);?></span>
                                 <a class="pfc12" href=""><span class="nospan">프로필 편집</span></a>
                                 <a class="pfc12" href=""><span class="nospan">수정</span></a>
                             </div>
                             <ul class="pfc2">
-                                <li>게시물 <b><?=htmlspecialchars(count($profile_article));?></b></li>
+                                <li>게시물 <b><?=htmlspecialchars(count($article));?></b></li>
                                 <li>팔로워 <b>53.8K</b></li>
                                 <li>팔로우 <b>0</b></li>
                             </ul>
@@ -50,7 +45,7 @@ $profile_article = isset($_SESSION['profile_article']) ? $_SESSION['profile_arti
                     </header>
                     <div class="pf2">
                         <?php $i=0; ?>
-                        <?php foreach ($profile_article as $row): ?>
+                        <?php foreach ($article as $row): ?>
                             <?php if ($i%3==0): ?>
                                 <div class="rows">
                             <?php endif ?>
