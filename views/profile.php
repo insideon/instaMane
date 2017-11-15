@@ -21,7 +21,7 @@ if (!isset($_SESSION['is_login'])) {
                     <div></div>
                     <div><a href=""><img class="topLogo2" src="images/insta1.jpg"></a></div>
                     <div><a href=""><img class="topLogo2" src="images/insta2.jpg"></a></div>
-                    <div><a href=""><img class="topLogo2" src="images/insta3.jpg"></a></div>
+                    <div><a href="/profile.php?nickname=<?=htmlspecialchars($_SESSION['nickname']);?>"><img class="topLogo2" src="images/insta3.jpg"></a></div>
                 </div>
             </nav>
             <main>
@@ -32,7 +32,9 @@ if (!isset($_SESSION['is_login'])) {
                             <div class="pfc1">
                                 <span class="pfc11"><?=htmlspecialchars($author['nickname']);?></span>
                                 <a class="pfc12" href=""><span class="nospan">프로필 편집</span></a>
-                                <form method="post" action="logout_process.php"><input class="pfc13" type="submit" name="logout" value="로그아웃"></form>
+                                <?php if ($author['nickname'] == $_SESSION['nickname']): ?>
+                                    <form method="post" action="logout_process.php"><input class="pfc13" type="submit" name="logout" value="로그아웃"></form>
+                                <?php endif; ?>
                             </div>
                             <ul class="pfc2">
                                 <li>게시물 <b><?=htmlspecialchars(count($article));?></b></li>
