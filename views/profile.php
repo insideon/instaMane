@@ -18,7 +18,6 @@ if (!isset($_SESSION['is_login'])) {
                 <div id="logoImg"><a href="main.php"><img class="topLogo1" src="images/instaLogo2.jpg"></a></div>
                 <div><input type="text" name="search" placeholder="검색"></div>
                 <div id="miniImg">
-                    <form method="post" action="logout_process.php"><input style="width: 70px;" type="submit" name="logout" value="로그아웃"></form>
                     <div></div>
                     <div><a href=""><img class="topLogo2" src="images/insta1.jpg"></a></div>
                     <div><a href=""><img class="topLogo2" src="images/insta2.jpg"></a></div>
@@ -33,7 +32,7 @@ if (!isset($_SESSION['is_login'])) {
                             <div class="pfc1">
                                 <span class="pfc11"><?=htmlspecialchars($author['nickname']);?></span>
                                 <a class="pfc12" href=""><span class="nospan">프로필 편집</span></a>
-                                <a class="pfc12" href=""><span class="nospan">수정</span></a>
+                                <form method="post" action="logout_process.php"><input class="pfc13" type="submit" name="logout" value="로그아웃"></form>
                             </div>
                             <ul class="pfc2">
                                 <li>게시물 <b><?=htmlspecialchars(count($article));?></b></li>

@@ -25,6 +25,7 @@ require __DIR__ . '/vendor/autoload.php';
         if ($email == $loginChk['email'] && password_verify($password, $loginChk['password'])) {
             $_SESSION['is_login'] = true;
             $_SESSION['email'] = $email;
+            $_SESSION['nickname'] = $loginChk['nickname'];
             header('Location: main.php');
             exit;
         } else if ($email != $loginChk['email']) {

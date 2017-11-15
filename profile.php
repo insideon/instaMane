@@ -12,10 +12,10 @@ require __DIR__ . '/vendor/autoload.php';
         die($e->getMessage());
     }
 
-    $email = $_SESSION['email'];
+    $nickname = $_GET['nickname'];
     $profile = new Profile($connect);
-    $author = $profile->author($email);
-    $article = $profile->article($email);
+    $author = $profile->author($nickname);
+    $article = $profile->article($nickname);
 
 require 'views/profile.php';
 ?>

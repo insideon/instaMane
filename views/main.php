@@ -19,11 +19,10 @@ if (!isset($_SESSION['is_login'])) {
                 <div id="logoImg"><a href="main.php"><img class="topLogo1" src="images/instaLogo2.jpg"></a></div>
                 <div><input type="text" name="search" placeholder="검색"></div>
                 <div id="miniImg">
-                    <form method="post" action="logout_process.php"><input style="width: 70px;" type="submit" name="logout" value="로그아웃"></form>
                     <div></div>
                     <div><a href=""><img class="topLogo2" src="images/insta1.jpg"></a></div>
                     <div><a href=""><img class="topLogo2" src="images/insta2.jpg"></a></div>
-                    <div><a href="profile.php"><img class="topLogo2" src="images/insta3.jpg"></a></div>
+                    <div><a href="/profile.php?nickname=<?=$_SESSION['nickname'];?>"><img class="topLogo2" src="images/insta3.jpg"></a></div>
                 </div>
             </nav>
             <main>
@@ -34,12 +33,12 @@ if (!isset($_SESSION['is_login'])) {
                                 <!-- 등록한 유저 -->
                                 <div id="author">
                                     <div>
-                                        <a href="">
+                                        <a href="/profile.php?nickname=<?=$article['authors']['nickname'];?>">
                                             <img class="author_icon" src="<?=htmlspecialchars($article['authors']['icon']);?>" alt="">
                                         </a>
                                     </div>
                                     <div>
-                                        <a class="bold" href="">
+                                        <a class="bold" href="/profile.php?nickname=<?=$article['authors']['nickname'];?>">
                                             <?=htmlspecialchars($article['authors']['nickname']);?>
                                         </a>
                                     </div>
