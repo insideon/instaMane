@@ -20,7 +20,7 @@ require __DIR__ . '/vendor/autoload.php';
         $articles[$i]['authors'] = $main->authors($articles[$i]['users_id']);
 
         // 업로드한 사진
-        $articles[$i]['pics'] = $main->pics($articles[$i]['users_id']);
+        $articles[$i]['pics'] = $main->pics($articles[$i]['id']);
 
         // 좋아요 갯수
         $articles[$i]['likesCnt'] = $main->likeCnt($articles[$i]['id']);

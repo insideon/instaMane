@@ -18,11 +18,13 @@ body {
     color: #999;
 }
 main {
-    height: 90%;
+    /*height: 90%;*/
     background-color: #fafafa;
 }
 footer {
-    height: 10%;
+    bottom:: 0;
+    left: 0;
+    right: 0;
     background-color: #fafafa;
     padding-top: 100px;
 }

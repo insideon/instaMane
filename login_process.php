@@ -23,8 +23,12 @@ require __DIR__ . '/vendor/autoload.php';
         $loginChk = $user->loginChk($email);
 
         if ($email == $loginChk['email'] && password_verify($password, $loginChk['password'])) {
+            // 마이페이지에 사용 할 사용자 정보를 세션에 담아놓기
+            $profileArticle = $user->profileArticle($email);
             $_SESSION['is_login'] = true;
             $_SESSION['nickname'] = $loginChk['nickname'];
+            $_SESSION['icon'] = $loginChk['icon'];
+            $_SESSION['profile_article'] = $profileArticle;
             header('Location: main.php');
             exit;
         } else if ($email != $loginChk['email']) {

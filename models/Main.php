@@ -27,10 +27,10 @@ class Main
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function pics($id)
+    public function pics($articles_id)
     {
-        $stmt = $this->connect->prepare('SELECT * FROM pics WHERE id = :id');
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt = $this->connect->prepare('SELECT * FROM pics WHERE articles_id = :articles_id');
+        $stmt->bindParam(':articles_id', $articles_id, PDO::PARAM_INT);
         $stmt->execute();
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
