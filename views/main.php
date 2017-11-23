@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['is_login'])) {
-    header('Location: login.php');
-    exit;
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +13,7 @@ if (!isset($_SESSION['is_login'])) {
                 <div><input type="text" name="search" placeholder="검색"></div>
                 <div id="miniImg">
                     <div></div>
+                    <div><a href="write.php"><img class="topLogo2" src="images/insta0.jpg"></a></div>
                     <div><a href=""><img class="topLogo2" src="images/insta1.jpg"></a></div>
                     <div><a href=""><img class="topLogo2" src="images/insta2.jpg"></a></div>
                     <div><a href="/profile.php?nickname=<?=htmlspecialchars($_SESSION['nickname']);?>"><img class="topLogo2" src="images/insta3.jpg"></a></div>

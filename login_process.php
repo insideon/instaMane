@@ -1,18 +1,10 @@
 <?php
 session_start();
+require 'Database.php';
 require 'models/User.php';
-require __DIR__ . '/vendor/autoload.php';
 
-    $dotenv = new Dotenv\Dotenv(__DIR__);
-    $dotenv->load();
-
-    try {
-        $connect = new PDO(getenv('DB_CONNECTION').":host=".getenv('DB_HOST').";dbname=".getenv('DB_DATABASE').";charset=utf8", getenv('DB_USERNAME'), getenv('DB_PASSWORD'));
-    } catch (PDOException $e) {
-        die($e->getMessage());
-    }
-
-    $user = new User($connect);
+    $database = new Database();
+    $user = new User($database->connect);
 
     // 필터링
     $email = filter_input(INPUT_POST, 'email', FILTER_DEFAULT);
@@ -24,7 +16,7 @@ require __DIR__ . '/vendor/autoload.php';
 
         if ($email == $loginChk['email'] && password_verify($password, $loginChk['password'])) {
             $_SESSION['is_login'] = true;
-            $_SESSION['email'] = $email;
+            $_SESSION['id'] = $loginChk['id'];
             $_SESSION['nickname'] = $loginChk['nickname'];
             header('Location: main.php');
             exit;

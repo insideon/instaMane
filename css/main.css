@@ -251,3 +251,69 @@ img {
     height: 100%;
     font-weight: 600;
 }
+
+/*글쓰기*/
+.writeFrame {
+    margin: 50px auto;
+    border: 1px solid #dfdfdf;
+    width: 600px;
+    height: 400px;
+    background-color: white;
+}
+.formFrame {
+    width: 600px;
+    height: 400px;
+}
+.form0 {
+    height: 10%;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 24px;
+    font-weight: 800;
+    color: #262626;
+}
+.form1 {
+    display: flex;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+}
+.form1 input {
+    width: 80%;
+    height: 25%;
+}
+.form2 {
+    display: flex;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+}
+.form2 input {
+    width: 80%;
+    height: 30%;
+}
+.form3 {
+    margin: 0 auto;
+    display: flex;
+    height: 25%;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 5px;
+}
+.form3 input {
+    width: 100px;
+    height: 50px;
+    font-weight: 600;
+    background-color: #3897f0;
+    border-color: #3897f0;
+    color: #fff;
+    border-radius: 3px;
+}
+.yes {
+    margin-right: 20px;
+}
+.errorMessage {
+    text-align: center;
+    color: #ff4444;
+}

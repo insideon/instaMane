@@ -1,12 +1,6 @@
 <?php
-session_start();
 $errorMessage = isset($_SESSION['errorMessage']) ? $_SESSION['errorMessage'] : '';
 unset($_SESSION['errorMessage']);
-
-if(isset($_SESSION['is_login'])){
-    header('Location: main.php');
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -59,7 +53,7 @@ if(isset($_SESSION['is_login'])){
                             </div>
                             <br>
                             <?php if($errorMessage): ?>
-                                <div><?=htmlspecialchars($errorMessage);?></div>
+                                <div class="errorMessage"><?=htmlspecialchars($errorMessage);?></div>
                             <?php endif; ?>
                             <p>가입하면 Instagram의 <a href="">약관</a> 및 <a href="">개인정보 처리방침</a>에 동의하게 됩니다.</p>
                         </form>

@@ -1,17 +1,15 @@
 <?php
+session_start();
+if (!isset($_SESSION['is_login'])) {
+    header('Location: login.php');
+    exit;
+}
+
+require 'Database.php';
 require 'models/Main.php';
-require __DIR__ . '/vendor/autoload.php';
 
-    $dotenv = new Dotenv\Dotenv(__DIR__);
-    $dotenv->load();
-
-    try {
-        $connect = new PDO(getenv('DB_CONNECTION').":host=".getenv('DB_HOST').";dbname=".getenv('DB_DATABASE').";charset=utf8", getenv('DB_USERNAME'), getenv('DB_PASSWORD'));
-    } catch (PDOException $e) {
-        die($e->getMessage());
-    }
-
-    $main = new Main($connect);
+    $database = new Database();
+    $main = new Main($database->connect);
     $articles = $main->articles();
 
     for($i=0; $i < count($articles); $i++) {
