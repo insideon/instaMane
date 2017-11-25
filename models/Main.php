@@ -67,4 +67,17 @@ class Main
 
         return $rows;
     }
+
+    public function addComment($articles_id)
+    {
+        $stmt = $this->connect->prepare('INSERT INTO comments(users_id, articles_id, content) VALUES(:users_id, :articles_id, :content)');
+        $stmt->bindParam(":users_id", $users_id);
+        $stmt->bindParam(":articles_id", $articles_id);
+        $stmt->bindParam(":content", $content);
+
+        $users_id = $_SESSION['id'];
+        $content = $_POST['content'];
+
+        $stmt->execute();
+    }
 }

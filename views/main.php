@@ -68,7 +68,7 @@
                                             <li><a id="moreComment" href="">댓글 더 보기</a></li>
                                             <li>
                                                 <?php foreach($article['comments'] as $comment):?>
-                                                    <a class='commentId' href=''><?=htmlspecialchars($comment['nickname']);?></a>
+                                                    <a class="commentId" href="/profile.php?nickname=<?=htmlspecialchars($comment['nickname']);?>"><?=htmlspecialchars($comment['nickname']);?></a>
                                                     <?=htmlspecialchars($comment['content']);?><br>
                                                 <?php endforeach;?>
                                             </li>
@@ -79,8 +79,9 @@
                                         <span id="timeStamp"><?=date("Y-m-d",strtotime(htmlspecialchars($article['created'])));?></span>
                                         <hr size="1" color="#ccc" noshade>
                                         <p></p>
-                                        <form>
-                                            <textarea placeholder="댓글 달기..."></textarea>
+                                        <form action="comment_process.php" method="post">
+                                            <input type="hidden" name="article_id" value="<?= htmlspecialchars($article['id']); ?>"></input>
+                                            <input class="comment" name="content" placeholder="댓글 달기...">
                                         </form>
                                     </section>
                                 </div>
